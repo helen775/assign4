@@ -30,3 +30,30 @@ with tabs[2]:
 with tabs[3]:
     st.subheader(f"Something New")
     st.bar_chart(df['Volume'])
+
+import matplotlib.pyplot as plt
+
+
+        # Set up the app title
+        st.title("Static Circle Display")
+
+        # Create a matplotlib figure and axis
+        fig, ax = plt.subplots()
+
+        # Create a circle at center (0,0) with a radius of 1
+        circle = plt.Circle((0, 0), radius=1, color="blue", fill=True)
+
+        # Add the circle to the axis
+        ax.add_patch(circle)
+
+        # Set limits and ensure the aspect ratio is equal so the circle isn't distorted
+        ax.set_xlim(-1.5, 1.5)
+        ax.set_ylim(-1.5, 1.5)
+        ax.set_aspect("equal")
+
+        # Turn off the axis lines and labels for a cleaner look
+        ax.axis("off")
+
+        # Display the plot in the Streamlit app
+        st.pyplot(fig)
+
