@@ -26,27 +26,27 @@ with tabs[2]:
     st.subheader(f"Volume for MSFT") 
     st.bar_chart(df['Volume'])
     
-# Tab 4: Volume Chart
+# Tab 4: Flower Picture
 with tabs[3]:
     st.subheader(f"Something New")
+
 
 # Display the title
 st.title("Drawing a Flower 🌸")
 
-# Create 5 pink petals and 1 yellow center
+# Create 5 pink petals close together
 data = pd.DataFrame({
-    "x": [2, 2, 1.81, 1.88, 2.12, 2.19],
-    "y": [2.22, 2, 2.07, 1.82, 1.82, 2.07],
-    "size": [3200, 1400, 3200, 3200, 3200, 3200],
-    "color": ["#FF69B4", "#FFD700", "#FF69B4",
-              "#FF69B4", "#FF69B4", "#FF69B4"]
+    "x": [2, 1.90, 2.10, 1.94, 2.06, 2],
+    "y": [2.12, 2.04, 2.04, 1.90, 1.90, 2],
+    "color": ["#FF69B4"] * 5 + ["#FFD700"],
+    "size": [4000] * 5 + [1400]
 })
 
 # Draw the flower
 st.vega_lite_chart(data, {
     "width": 350,
     "height": 350,
-    "mark": {"type": "circle"},
+    "mark": {"type": "circle", "opacity": 1},
     "encoding": {
         "x": {
             "field": "x",
@@ -63,7 +63,7 @@ st.vega_lite_chart(data, {
         "size": {
             "field": "size",
             "type": "quantitative",
-            "scale": {"domain": [0, 3200], "range": [0, 3200]},
+            "scale": {"domain": [0, 4000], "range": [0, 4000]},
             "legend": None
         },
         "color": {
@@ -71,6 +71,12 @@ st.vega_lite_chart(data, {
             "type": "nominal",
             "scale": None,
             "legend": None
+        },
+        "order": {
+            "field": "size",
+            "type": "quantitative",
+            "sort": "descending"
         }
     }
 })
+
