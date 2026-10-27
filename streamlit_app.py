@@ -61,7 +61,7 @@ st.vega_lite_chart(data, {
         "size": {
             "field": "size",
             "type": "quantitative",
-            "scale": {"domain": [0, 2500], "range": [0, 2500]},
+            "scale": {"domain": [0, 4000], "range": [0, 4000]},
             "legend": None
         },
         "color": {
