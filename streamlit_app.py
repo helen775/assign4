@@ -29,23 +29,24 @@ with tabs[2]:
 # Tab 4: Volume Chart
 with tabs[3]:
     st.subheader(f"Something New")
-    
-        # Display the title
-        st.title("Drawing a Cloud ☁️")
-        
-        # Create points that form a cloud
-        data = pd.DataFrame({
-            "x": [1, 2, 3, 4, 5, 6, 7],
-            "y": [2, 3, 4, 4, 4, 3, 2],
-            "size": [800, 2000, 3000, 3500, 3000, 2000, 800]
-        })
-        
-        # Draw the cloud using a scatter chart
-        st.scatter_chart(
-            data,
-            x="x",
-            y="y",
-            size="size",
-            color="#87CEEB"
-        )
+
+# Display the title
+st.title("Drawing a Cloud ☁️")
+
+# Create points that form a cloud
+data = pd.DataFrame({
+    "x": [1, 2, 3, 4, 5, 6, 7],
+    "y": [2, 3, 4, 4, 4, 3, 2],
+    "size": [800, 2000, 3000, 3500, 3000, 2000, 800]
+})
+
+# Draw the cloud using a scatter chart
+st.scatter_chart(
+    data,
+    x="x",
+    y="y",
+    size="size",
+    color="#87CEEB"
+)
+
 
