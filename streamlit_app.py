@@ -33,16 +33,23 @@ with tabs[3]:
 # Display the title
 st.title("Drawing a Flower 🌸")
 
-# Create 5 pink petals closer to the yellow center
+
+import streamlit as st
+import pandas as pd
+
+# Display the title
+st.title("Drawing a Flower 🌸")
+
+# Create 5 pink petals and 1 yellow center
 data = pd.DataFrame({
-    "x": [2, 2, 1.85, 2.15, 1.9, 2.1],
-    "y": [2, 2.18, 2.08, 2.08, 1.88, 1.88],
-    "size": [900, 4000, 4000, 4000, 4000, 4000],
+    "x": [2, 2, 1.93, 2.07, 1.95, 2.05],
+    "y": [2, 2.08, 2.04, 2.04, 1.94, 1.94],
+    "size": [1000, 4000, 4000, 4000, 4000, 4000],
     "color": ["#FFD700", "#FF69B4", "#FF69B4",
               "#FF69B4", "#FF69B4", "#FF69B4"]
 })
 
-# Draw the flower
+# Draw pink petals first, then yellow center
 st.vega_lite_chart(data, {
     "mark": {"type": "circle"},
     "encoding": {
@@ -69,6 +76,11 @@ st.vega_lite_chart(data, {
             "type": "nominal",
             "scale": None,
             "legend": None
+        },
+        "order": {
+            "field": "size",
+            "type": "quantitative",
+            "sort": "descending"
         }
     },
     "width": 350,
