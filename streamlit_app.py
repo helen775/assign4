@@ -33,20 +33,35 @@ with tabs[3]:
 # Display the title
 st.title("Drawing a Cloud ☁️")
 
-# Create points that form a cloud
-data = pd.DataFrame({
-    "x": [1, 2, 3, 4, 5, 6, 7],
-    "y": [2, 3, 4, 4, 4, 3, 2],
-    "size": [800, 2000, 3000, 3500, 3000, 2000, 800]
-})
 
-# Draw the cloud using a scatter chart
-st.scatter_chart(
-    data,
-    x="x",
-    y="y",
-    size="size",
-    color="#87CEEB"
-)
+import streamlit as st
 
+# Display the title
+st.title("Drawing a Candle 🕯️")
+
+# Draw a candle using HTML and CSS
+st.markdown("""
+<div style="display: flex; flex-direction: column;
+            align-items: center;">
+
+    <!-- Flame -->
+    <div style="width: 30px; height: 45px;
+                background-color: orange;
+                border-radius: 50% 50% 50% 0;
+                transform: rotate(-45deg);">
+    </div>
+
+    <!-- Wick -->
+    <div style="width: 5px; height: 15px;
+                background-color: black;">
+    </div>
+
+    <!-- Candle Body -->
+    <div style="width: 80px; height: 180px;
+                background-color: pink;
+                border-radius: 5px;">
+    </div>
+
+</div>
+""", unsafe_allow_html=True)
 
