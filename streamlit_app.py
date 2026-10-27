@@ -35,7 +35,7 @@ st.title("Drawing a Flower 🌸")
 
 # Create 5 pink petals and 1 yellow center
 data = pd.DataFrame({
-    "x": [2, 1.96, 2.04, 1.98, 2.06, 2],
+    "x": [2, 1.93, 2.07, 1.98, 2.02, 2],
     "y": [2.12, 2.04, 2.04, 1.90, 1.90, 2],
     "color": ["#FF69B4"] * 5 + ["#FFD700"],
     "size": [3000] * 5 + [1400]
