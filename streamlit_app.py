@@ -30,16 +30,15 @@ with tabs[2]:
 with tabs[3]:
     st.subheader(f"Something New")
 
-
 # Display the title
 st.title("Drawing a Flower 🌸")
 
-# Create 5 pink petals close together
+# Create 5 pink petals and 1 yellow center
 data = pd.DataFrame({
     "x": [2, 1.90, 2.10, 1.94, 2.06, 2],
     "y": [2.12, 2.04, 2.04, 1.90, 1.90, 2],
     "color": ["#FF69B4"] * 5 + ["#FFD700"],
-    "size": [4000] * 5 + [1400]
+    "size": [3000] * 5 + [1400]
 })
 
 # Draw the flower
@@ -63,7 +62,7 @@ st.vega_lite_chart(data, {
         "size": {
             "field": "size",
             "type": "quantitative",
-            "scale": {"domain": [0, 4000], "range": [0, 4000]},
+            "scale": {"domain": [0, 3000], "range": [0, 3000]},
             "legend": None
         },
         "color": {
@@ -79,4 +78,3 @@ st.vega_lite_chart(data, {
         }
     }
 })
-
