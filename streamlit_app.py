@@ -33,21 +33,47 @@ with tabs[3]:
 # Display the title
 st.title("Drawing a Candle 🕯️")
 
-# Create points for the candle
-data = pd.DataFrame({
-    "x": [2, 2, 2, 2, 2, 2],
-    "y": [1, 2, 3, 4, 5, 6],
-    "size": [1500, 1500, 1500, 1500, 200, 500],
-    "color": ["pink", "pink", "pink", "pink", "black", "orange"]
-})
+
+import streamlit as st
+
+# Display the title
+st.title("Drawing a Candle 🕯️")
 
 # Draw the candle
-st.scatter_chart(
-    data,
-    x="x",
-    y="y",
-    size="size",
-    color="color"
-)
+st.vega_lite_chart({
+    "width": 250,
+    "height": 350,
+    "layer": [
+        # Pink rectangular candle body
+        {
+            "mark": {"type": "rect", "color": "pink"},
+            "encoding": {
+                "x": {"datum": 1},
+                "x2": {"datum": 3},
+                "y": {"datum": 0},
+                "y2": {"datum": 4}
+            }
+        },
+        # Black wick
+        {
+            "mark": {"type": "rect", "color": "black"},
+            "encoding": {
+                "x": {"datum": 1.95},
+                "x2": {"datum": 2.05},
+                "y": {"datum": 4},
+                "y2": {"datum": 4.5}
+            }
+        },
+        # Orange flame
+        {
+            "mark": {"type": "point", "filled": True,
+                     "color": "orange", "size": 1000},
+            "encoding": {
+                "x": {"datum": 2},
+                "y": {"datum": 5}
+            }
+        }
+    ]
+})
 
 
