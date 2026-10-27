@@ -32,38 +32,40 @@ with tabs[3]:
     
         # Import Matplotlib to draw the cookie
 import matplotlib.pyplot as plt
-        
+
+
 # Display the title of the app
 st.title("Chocolate Chip Cookie 🍪")
-        
+
 # Create a figure and axes for drawing
 fig, ax = plt.subplots()
-        
+
 # Create a circular cookie with a light brown color
 cookie = plt.Circle((0, 0), 1, color="burlywood")
-        
+
 # Add the cookie circle to the drawing
 ax.add_patch(cookie)
-        
+
 # Define the positions of the chocolate chips
 for x, y in [(-0.4, 0.3), (0.3, 0.5), (0, 0), (-0.5, -0.4), (0.5, -0.3)]:
-        
-# Draw a small dark brown circle at each position
-ax.add_patch(plt.Circle((x, y), 0.12, color="saddlebrown"))
-        
+
+    # Draw a small dark brown circle at each position
+    ax.add_patch(plt.Circle((x, y), 0.12, color="saddlebrown"))
+
 # Set the horizontal boundaries of the drawing
 ax.set_xlim(-1.2, 1.2)
-        
+
 # Set the vertical boundaries of the drawing
 ax.set_ylim(-1.2, 1.2)
-        
+
 # Keep the cookie perfectly round instead of stretched
 ax.set_aspect("equal")
-        
+
 # Hide the axes, numbers, and grid lines
 ax.axis("off")
-        
+
 # Display the completed cookie in the Streamlit app
 st.pyplot(fig)
+
 
 
