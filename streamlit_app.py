@@ -9,51 +9,61 @@ st.title("Microsoft Stock Data Dashboard by Helen Chen")
 df = pd.read_csv("msft.csv")
 
 # Set up the 4 tabs on the Dashboard
-tabs = st.tabs(["📋 Raw Data", "📈 Price Chart", "📊 Volume Chart","🎀 Fun Tab"])
+tabs = st.tabs(["📋 Raw Data", "📈 Price Chart", "📊 Volume Chart","🎀Fun Tab"])
 
 # Tab 1: Raw Data
 with tabs[0]:
-    st.subheader(f"Raw Data for MSFT")
-    st.dataframe(df, use_container_width=True)
+    st.subheader(f"Raw Data for MSFT") ## display title of tab 
+    st.dataframe(df, use_container_width=True) 
 
 # Tab 2: Closing Price Chart
 with tabs[1]:
     st.subheader(f"Closing Price for MSFT")
-    st.line_chart(df['Close'])
+    st.line_chart(df['Close']) # display line chart
 
 # Tab 3: Volume Chart
 with tabs[2]:
-    st.subheader(f"Volume for MSFT")
+    st.subheader(f"Volume for MSFT") 
     st.bar_chart(df['Volume'])
     
 # Tab 4: Volume Chart
 with tabs[3]:
     st.subheader(f"Something New")
-    st.bar_chart(df['Volume'])
-
-import matplotlib.pyplot as plt
-
-
-        # Set up the app title
-        st.title("Static Circle Display")
-
-        # Create a matplotlib figure and axis
+    
+        # Import Matplotlib to draw the cookie
+        import matplotlib.pyplot as plt
+        
+        # Display the title of the app
+        st.title("Chocolate Chip Cookie 🍪")
+        
+        # Create a figure and axes for drawing
         fig, ax = plt.subplots()
-
-        # Create a circle at center (0,0) with a radius of 1
-        circle = plt.Circle((0, 0), radius=1, color="blue", fill=True)
-
-        # Add the circle to the axis
-        ax.add_patch(circle)
-
-        # Set limits and ensure the aspect ratio is equal so the circle isn't distorted
-        ax.set_xlim(-1.5, 1.5)
-        ax.set_ylim(-1.5, 1.5)
+        
+        # Create a circular cookie with a light brown color
+        cookie = plt.Circle((0, 0), 1, color="burlywood")
+        
+        # Add the cookie circle to the drawing
+        ax.add_patch(cookie)
+        
+        # Define the positions of the chocolate chips
+        for x, y in [(-0.4, 0.3), (0.3, 0.5), (0, 0), (-0.5, -0.4), (0.5, -0.3)]:
+        
+            # Draw a small dark brown circle at each position
+            ax.add_patch(plt.Circle((x, y), 0.12, color="saddlebrown"))
+        
+        # Set the horizontal boundaries of the drawing
+        ax.set_xlim(-1.2, 1.2)
+        
+        # Set the vertical boundaries of the drawing
+        ax.set_ylim(-1.2, 1.2)
+        
+        # Keep the cookie perfectly round instead of stretched
         ax.set_aspect("equal")
-
-        # Turn off the axis lines and labels for a cleaner look
+        
+        # Hide the axes, numbers, and grid lines
         ax.axis("off")
-
-        # Display the plot in the Streamlit app
+        
+        # Display the completed cookie in the Streamlit app
         st.pyplot(fig)
+
 
