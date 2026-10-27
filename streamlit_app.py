@@ -33,42 +33,37 @@ with tabs[3]:
 # Display the title
 st.title("Drawing a Flower 🌸")
 
-
-import streamlit as st
-import pandas as pd
-
-# Display the title
-st.title("Drawing a Flower 🌸")
-
 # Create 5 pink petals and 1 yellow center
 data = pd.DataFrame({
-    "x": [2, 2, 1.93, 2.07, 1.95, 2.05],
-    "y": [2, 2.08, 2.04, 2.04, 1.94, 1.94],
-    "size": [1000, 4000, 4000, 4000, 4000, 4000],
-    "color": ["#FFD700", "#FF69B4", "#FF69B4",
+    "x": [2, 2, 1.81, 1.88, 2.12, 2.19],
+    "y": [2.22, 2, 2.07, 1.82, 1.82, 2.07],
+    "size": [3200, 1400, 3200, 3200, 3200, 3200],
+    "color": ["#FF69B4", "#FFD700", "#FF69B4",
               "#FF69B4", "#FF69B4", "#FF69B4"]
 })
 
-# Draw pink petals first, then yellow center
+# Draw the flower
 st.vega_lite_chart(data, {
+    "width": 350,
+    "height": 350,
     "mark": {"type": "circle"},
     "encoding": {
         "x": {
             "field": "x",
             "type": "quantitative",
-            "scale": {"domain": [1.7, 2.3]},
+            "scale": {"domain": [1.5, 2.5]},
             "axis": None
         },
         "y": {
             "field": "y",
             "type": "quantitative",
-            "scale": {"domain": [1.7, 2.3]},
+            "scale": {"domain": [1.5, 2.5]},
             "axis": None
         },
         "size": {
             "field": "size",
             "type": "quantitative",
-            "scale": {"domain": [0, 4000], "range": [0, 4000]},
+            "scale": {"domain": [0, 3200], "range": [0, 3200]},
             "legend": None
         },
         "color": {
@@ -76,13 +71,6 @@ st.vega_lite_chart(data, {
             "type": "nominal",
             "scale": None,
             "legend": None
-        },
-        "order": {
-            "field": "size",
-            "type": "quantitative",
-            "sort": "descending"
         }
-    },
-    "width": 350,
-    "height": 350
+    }
 })
