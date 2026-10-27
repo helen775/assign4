@@ -29,52 +29,51 @@ with tabs[2]:
 # Tab 4: Flower Picture
 with tabs[3]:
     st.subheader(f"Something New")
-
-# Display the title
-st.title("Drawing a Flower 🌸")
-
-# Create 5 pink petals and 1 yellow center
-data = pd.DataFrame({
-    "x": [2, 1.94, 2.06, 1.96, 2.04, 2],
-    "y": [2.12, 2.04, 2.04, 1.90, 1.90, 2],
-    "color": ["#FF69B4"] * 5 + ["#FFD700"],
-    "size": [3000] * 5 + [1400]
-})
-
-# Draw the flower
-st.vega_lite_chart(data, {
-    "width": 350,
-    "height": 350,
-    "mark": {"type": "circle", "opacity": 1},
-    "encoding": {
-        "x": {
-            "field": "x",
-            "type": "quantitative",
-            "scale": {"domain": [1.5, 2.5]},
-            "axis": None
-        },
-        "y": {
-            "field": "y",
-            "type": "quantitative",
-            "scale": {"domain": [1.5, 2.5]},
-            "axis": None
-        },
-        "size": {
-            "field": "size",
-            "type": "quantitative",
-            "scale": {"domain": [0, 3000], "range": [0, 3000]},
-            "legend": None
-        },
-        "color": {
-            "field": "color",
-            "type": "nominal",
-            "scale": None,
-            "legend": None
-        },
-        "order": {
-            "field": "size",
-            "type": "quantitative",
-            "sort": "descending"
+    # Display the title
+    st.title("Drawing a Flower 🌸")
+    
+    # Create 5 pink petals and 1 yellow center
+    data = pd.DataFrame({
+        "x": [2, 1.94, 2.06, 1.96, 2.04, 2],
+        "y": [2.12, 2.04, 2.04, 1.90, 1.90, 2],
+        "color": ["#FF69B4"] * 5 + ["#FFD700"],
+        "size": [3000] * 5 + [1400]
+    })
+    
+    # Draw the flower
+    st.vega_lite_chart(data, {
+        "width": 350,
+        "height": 350,
+        "mark": {"type": "circle", "opacity": 1},
+        "encoding": {
+            "x": {
+                "field": "x",
+                "type": "quantitative",
+                "scale": {"domain": [1.5, 2.5]},
+                "axis": None
+            },
+            "y": {
+                "field": "y",
+                "type": "quantitative",
+                "scale": {"domain": [1.5, 2.5]},
+                "axis": None
+            },
+            "size": {
+                "field": "size",
+                "type": "quantitative",
+                "scale": {"domain": [0, 3000], "range": [0, 3000]},
+                "legend": None
+            },
+            "color": {
+                "field": "color",
+                "type": "nominal",
+                "scale": None,
+                "legend": None
+            },
+            "order": {
+                "field": "size",
+                "type": "quantitative",
+                "sort": "descending"
+            }
         }
-    }
-})
+    })
