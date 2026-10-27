@@ -31,49 +31,24 @@ with tabs[3]:
     st.subheader(f"Something New")
 
 # Display the title
-st.title("Drawing a Candle 🕯️")
+st.title("Drawing a Flower 🌸")
 
-
-import streamlit as st
-
-# Display the title
-st.title("Drawing a Candle 🕯️")
-
-# Draw the candle
-st.vega_lite_chart({
-    "width": 250,
-    "height": 350,
-    "layer": [
-        # Pink rectangular candle body
-        {
-            "mark": {"type": "rect", "color": "pink"},
-            "encoding": {
-                "x": {"datum": 1},
-                "x2": {"datum": 3},
-                "y": {"datum": 0},
-                "y2": {"datum": 4}
-            }
-        },
-        # Black wick
-        {
-            "mark": {"type": "rect", "color": "black"},
-            "encoding": {
-                "x": {"datum": 1.95},
-                "x2": {"datum": 2.05},
-                "y": {"datum": 4},
-                "y2": {"datum": 4.5}
-            }
-        },
-        # Orange flame
-        {
-            "mark": {"type": "point", "filled": True,
-                     "color": "orange", "size": 1000},
-            "encoding": {
-                "x": {"datum": 2},
-                "y": {"datum": 5}
-            }
-        }
-    ]
+# Create the flower using circles
+data = pd.DataFrame({
+    "x": [2, 1, 3, 2, 2, 2, 2, 2],
+    "y": [5, 4, 4, 3, 4, 2, 1, 0],
+    "size": [2000, 2000, 2000, 2000, 800, 300, 300, 300],
+    "color": ["pink", "pink", "pink", "pink",
+              "yellow", "green", "green", "green"]
 })
+
+# Draw the flower
+st.scatter_chart(
+    data,
+    x="x",
+    y="y",
+    size="size",
+    color="color"
+)
 
 
