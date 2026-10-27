@@ -31,37 +31,23 @@ with tabs[3]:
     st.subheader(f"Something New")
 
 # Display the title
-st.title("Drawing a Cloud ☁️")
-
-
-import streamlit as st
-
-# Display the title
 st.title("Drawing a Candle 🕯️")
 
-# Draw a candle using HTML and CSS
-st.markdown("""
-<div style="display: flex; flex-direction: column;
-            align-items: center;">
+# Create points for the candle
+data = pd.DataFrame({
+    "x": [2, 2, 2, 2, 2, 2],
+    "y": [1, 2, 3, 4, 5, 6],
+    "size": [1500, 1500, 1500, 1500, 200, 500],
+    "color": ["pink", "pink", "pink", "pink", "black", "orange"]
+})
 
-    <!-- Flame -->
-    <div style="width: 30px; height: 45px;
-                background-color: orange;
-                border-radius: 50% 50% 50% 0;
-                transform: rotate(-45deg);">
-    </div>
+# Draw the candle
+st.scatter_chart(
+    data,
+    x="x",
+    y="y",
+    size="size",
+    color="color"
+)
 
-    <!-- Wick -->
-    <div style="width: 5px; height: 15px;
-                background-color: black;">
-    </div>
-
-    <!-- Candle Body -->
-    <div style="width: 80px; height: 180px;
-                background-color: pink;
-                border-radius: 5px;">
-    </div>
-
-</div>
-""", unsafe_allow_html=True)
 
