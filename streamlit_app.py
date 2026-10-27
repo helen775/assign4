@@ -31,7 +31,7 @@ with tabs[3]:
     st.subheader(f"Something New")
     
         # Import Matplotlib to draw the cookie
-        import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
         
         # Display the title of the app
         st.title("Chocolate Chip Cookie 🍪")
