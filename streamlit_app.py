@@ -28,7 +28,6 @@ with tabs[2]:
     
 # Tab 4: Flower Picture
 with tabs[3]:
-    st.subheader(f"Something New")
     # Display the title
     st.title("Drawing a Flower 🌸")
     
