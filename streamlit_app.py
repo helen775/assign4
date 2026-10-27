@@ -33,13 +33,12 @@ with tabs[3]:
 # Display the title
 st.title("Drawing a Flower 🌸")
 
-# Create the flower using circles
+# Create points for the flower
 data = pd.DataFrame({
-    "x": [2, 1, 3, 2, 2, 2, 2, 2],
-    "y": [5, 4, 4, 3, 4, 2, 1, 0],
-    "size": [2000, 2000, 2000, 2000, 800, 300, 300, 300],
-    "color": ["pink", "pink", "pink", "pink",
-              "yellow", "green", "green", "green"]
+    "x": [2.0, 2.0, 1.7, 2.3, 1.8, 2.2],
+    "y": [2.0, 2.35, 2.15, 2.15, 1.75, 1.75],
+    "size": [900, 1400, 1400, 1400, 1400, 1400],
+    "color": ["yellow", "pink", "pink", "pink", "pink", "pink"]
 })
 
 # Draw the flower
@@ -50,5 +49,6 @@ st.scatter_chart(
     size="size",
     color="color"
 )
+
 
 
