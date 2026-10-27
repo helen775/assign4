@@ -30,6 +30,10 @@ with tabs[2]:
 with tabs[3]:
     st.subheader(f"Something New")
 
+
+import streamlit as st
+import pandas as pd
+
 # Display the title
 st.title("Drawing a Flower 🌸")
 
@@ -37,20 +41,41 @@ st.title("Drawing a Flower 🌸")
 data = pd.DataFrame({
     "x": [2, 2, 1.7, 2.3, 1.8, 2.2],
     "y": [2, 2.35, 2.15, 2.15, 1.75, 1.75],
-    "size": [1500, 4000, 4000, 4000, 4000, 4000],
+    "size": [900, 2500, 2500, 2500, 2500, 2500],
     "color": ["#FFD700", "#FF69B4", "#FF69B4",
               "#FF69B4", "#FF69B4", "#FF69B4"]
 })
 
-# Draw the flower
-st.scatter_chart(
-    data,
-    x="x",
-    y="y",
-    size="size",
-    color="color",
-    height=450
-)
-
-
-
+# Draw the flower with fixed colors and spacing
+st.vega_lite_chart(data, {
+    "mark": {"type": "circle"},
+    "encoding": {
+        "x": {
+            "field": "x",
+            "type": "quantitative",
+            "scale": {"domain": [1.3, 2.7]},
+            "axis": None
+        },
+        "y": {
+            "field": "y",
+            "type": "quantitative",
+            "scale": {"domain": [1.3, 2.7]},
+            "axis": None
+        },
+        "size": {
+            "field": "size",
+            "type": "quantitative",
+            "scale": {"domain": [0, 2500],
+                      "range": [0, 2500]},
+            "legend": None
+        },
+        "color": {
+            "field": "color",
+            "type": "nominal",
+            "scale": None,
+            "legend": None
+        }
+    },
+    "width": 350,
+    "height": 350
+})
